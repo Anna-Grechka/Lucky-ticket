@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="set batchName=runCSharp.bat&#xD;&#xA;echo @echo off &gt; %25batchName%25&#xD;&#xA;echo &quot;$(TargetPath)&quot; &gt;&gt; %25batchName%25&#xD;&#xA;echo pause &gt;&gt; %25batchName%25" />
+  </Target>
+
+</Project>
